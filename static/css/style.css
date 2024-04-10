@@ -1,0 +1,125 @@
+body.second{
+    background-color: #123c5e;
+}
+
+ul{
+    list-style: none;
+}
+
+h1{
+    color: #e0eff1;
+}
+
+h3{
+    color: #68ce92;
+}
+
+p{
+    color: white;
+}
+
+.btn{
+    background-color: #123c5e;
+    color: #e0eff1;
+}
+
+.btn:hover{
+    background-color: #60db86;
+    color: #123c5e;
+}
+
+.btn.done{
+    background-color: white;
+    color: #123c5e;
+}
+
+.btn.done:hover{
+    background-color: #60db86;
+    color: #123c5e;
+}
+
+.btn.done-2{
+    background-color: #60db86;
+    color: #123c5e;
+}
+
+.btn.done-2:hover{
+    background-color: #709cbc;
+    color: #123c5e;
+}
+
+h1.initial{
+    color: #123c5e;
+}
+
+p.initial{
+    color: #123c5e;
+}
+
+.main-logo{
+    width: 30%;
+    height: auto;
+}
+
+.logo{
+    width: 10%;
+    height: auto;
+}
+
+.main{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 1%;
+    margin-left: 30%;
+    margin-right: 30%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.main-2{
+    margin-left: 30%;
+    margin-right: 30%;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+}
+
+.green-button{
+    background-color: green;
+    color: white;
+}
+
+.red-button{
+    background-color: red;
+    color: white;
+}
+
+.disabled-link {
+    pointer-events: none; /* Prevent clicking */
+    color: #6c757d !important; /* Bootstrap's default disabled color */
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) { /* Adjusts for tablets and below */
+    .main {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media (max-width: 480px) { /* Adjusts for mobile phones */
+    .main {
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+}

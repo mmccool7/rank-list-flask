@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Ranklist - Flask App{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h1>Program Attributes</h1>
+    <p>Enter the attributes of programs that are important to you.</p>
+    <div>
+        <h3>**IMPORTANT**</h3>
+        <p>Enter the attributes in order from MOST IMPORTANT to LEAST IMPORTANT</p>
+        <p>e.g. MOST IMPORTANT at the top. LEAST IMPORTANT at the bottom.</p>
+    </div>   
+</div>
+<div class="main">
+    <div class="item">
+        <form action="{{ url_for('logattributes') }}" id="attributesForm" method="post">
+            <div id="formfield">
+                <input type="text" name="text" class="form-control" placeholder="e.g. Location">
+            </div>
+            <div class="mt-1 text-end">
+                <button class="btn green-button" type="button" onclick="add()">+</button>
+                <button class="btn red-button" type="button" onclick="remove()">-</button>
+            </div>
+            <div class="mt-1 text-center">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
