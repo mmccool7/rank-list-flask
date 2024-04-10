@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Ranklist - Flask App{% endblock %}
+
+{% block content %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('.attribute-link');
+
+    // Function to disable a link
+    function disableLink(link) {
+        link.classList.add('disabled-link'); // Add class to visually disable the link
+        link.onclick = function(event) { event.preventDefault(); }; // Prevent click action
+    }
+
+    // Check and disable previously clicked links
+    links.forEach(link => {
+        const linkId = link.getAttribute('id');
+        if (localStorage.getItem(linkId) === 'clicked') {
+            disableLink(link);
+        }
+
+        // Attach click event to update local storage and disable link
+        link.addEventListener('click', function() {
+            localStorage.setItem(linkId, 'clicked'); // Mark as clicked in local storage
+            disableLink(link);
+        });
+    });
+});
+</script>
+<div class="container text-center">
+    <h1>Attribute Rating</h1>
+    <p>Click each attribute and rank how well each program covers the given attribute. <br>
+    When you have ranked every attribute, click "done".</p>
+</div>
+<div class="main">
+    <div class="item">
+        <ul>
+        {% for attribute in attributes %}
+            <li><a href="/attributes/{{attribute}}" class="btn mt-1 attribute-link" id="link-{{ attribute }}">{{attribute}}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="main-2">
+    <a href="{{ url_for('finalcalculations') }}" class="btn done-2 mt-1" onclick="resetLinkStates()">Done</a>
+</div>
+{% endblock %}

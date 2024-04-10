@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Ranklist - Flask App{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h1>{{ attr }} </h1>
+    <p>Rank each program on how well they cover this attribute.<br>
+        HIGHEST number is the best rank. LOWEST number is the worst rank.<br>
+        i.e. if you have 5 programs:<br>
+        5 = BEST<br>
+        1 = WORST
+    </p>
+</div>
+<div class="main">
+    <div class="item">
+        <form action="{{ url_for('logsubmission') }}" id="form-submit-1" method="post">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Program</th>
+                <th scope="col">Rank</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for program in programs %}
+                <tr>
+                    <th scope="row">{{ program }}</th>
+                    <td>
+                        <select class="form-select" name="select" aria-label="Default select example">
+                            {% for num in prog_list %}
+                            <option>{{ num }}</option>
+                            {% endfor %}
+                          </select>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+        <button type="submit" class="btn">Submit</button>
+        </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

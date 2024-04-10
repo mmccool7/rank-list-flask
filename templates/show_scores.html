@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Results - Flask App{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h1>Results</h1>
+</div>
+<div class="main">
+    <div class="item">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Program</th>
+                    <th scope="col">% Match</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for name, score in sorted_sums %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ name }}</td>
+                        <td>{{ (((score/possible)*100)|round(0))|int  }}%</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container text-center mt-1">
+    <p>Thank you for using ResiRank!<br>
+        Click "Done" to return to the homepage!
+    </p>
+    <a href="{{ url_for('done') }}" class="btn done">Done</a>
+</div>
+
+{% endblock %}

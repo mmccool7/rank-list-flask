@@ -1,0 +1,16 @@
+{% extends "initial.html" %}
+
+{% block title %}Home - Flask App{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <img src="{{ url_for('static', filename='images/main-logo.png') }}" class="main-logo" alt="Logo">
+</div>
+<div class="container text-center">
+    <h1 class="initial">Welcome to ResiRank!</h1>
+    <p class="initial">Rank List for Residency</p>
+</div>
+<div class="container text-center">
+    <a href="{{ url_for('rank') }}" class="btn">Begin</a>
+</div>
+{% endblock %}

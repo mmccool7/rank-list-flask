@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Ranklist - Flask App{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h1>Program List</h1>
+    <p>Enter the programs you are considering</p>
+</div>
+<div class="main">
+    <div class="item">
+        <form action="{{ url_for('logprograms') }}" id="programForm" method="post">
+            <label for="">Enter Programs Here:</label>
+            <div id="formfield">
+                <input type="text" name="text" class="form-control" placeholder="e.g. TTUHSC">
+            </div>
+            <div class="mt-1 text-end">
+                <button class="btn green-button" type="button" onclick="add()">+</button>
+                <button class="btn red-button" type="button" onclick="remove()">-</button>
+            </div>
+            <div class="mt-1 text-center">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
